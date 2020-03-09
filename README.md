@@ -1,4 +1,5 @@
 
+
 # Slimium
 
 ## Setup
@@ -19,8 +20,10 @@
 Go to Chromium source code `src`:
 1. `./build/install-build-deps.sh`
 2. `gclient runhooks`
-3.  Patch `build/config/compiler/BUILD.gn`: line 43 ~ 49 and line 252 ~ 268.
+3.  Patch `build/config/compiler/BUILD.gn` with file `slimium/chromium-build-config/BUILD.gn`(line 43 ~ 49 and line 252 ~ 268).
 
 #### Dump LLVM IR
 1. `gn gen out/DumpIR`
-2. `cp 
+2. `cp slimium/chromium-build-config/dump_ir_args.gn out/DumpIR/args.gn`
+3. `autoninja -C out/DumpIR chrome`
+4. After compiling chromium, the LLVM bitcode would be dumped into the directory specified in file `llvm/lib/Transforms/Scalar/DumpIR.cpp` (line 81).
