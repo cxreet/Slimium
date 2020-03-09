@@ -17,7 +17,7 @@
 Go to Chromium source code `src`:
 1. `./build/install-build-deps.sh`
 2. `gclient runhooks`
-3.  Patch `build/config/compiler/BUILD.gn`: `cp slimium/chromium-build-config/BUILD.gn build/config/compiler/BUILD.gn`
+3.  Patch `build/config/compiler/BUILD.gn`: line 43 ~ 49 and line 252 ~ 268.
 
 #### Dump LLVM IR
 1. `gn gen out/DumpIR`
