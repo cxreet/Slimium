@@ -1,0 +1,9 @@
+# Set build arguments here. See `gn buildargs`.
+clang_base_path = "/home/chenxiong/11vm/build/"
+clang_use_chrome_plugins = false
+is_debug = false
+symbol_level = 1
+is_component_build = true
+#dump_ir = true
+my_enable_profiling = true
+#enable_marking = true
