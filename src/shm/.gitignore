@@ -1,6 +1,7 @@
 *.gch
 shm_clear
 *.bc
+*.ll
 shm_create
 shm_decode
 shm_read

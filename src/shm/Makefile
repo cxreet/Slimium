@@ -8,8 +8,8 @@ shm_read: shm_read.c defs.h
 
 shm_clear: shm_clear.c defs.h
 	gcc shm_clear.c defs.h -o shm_clear
-	#clang -c -emit-llvm shm_clear.c defs.h
-	#llvm-dis shm_clear.bc -o shm_clear.ll
+	clang -c -emit-llvm shm_clear.c defs.h
+	llvm-dis shm_clear.bc -o shm_clear.ll
 
 shm_decode: shm_decode.c defs.h
 	gcc shm_decode.c defs.h -o shm_decode
