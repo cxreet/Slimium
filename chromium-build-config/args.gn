@@ -5,5 +5,5 @@ is_debug = false
 symbol_level = 1
 is_component_build = true
 dump_ir = true
-#enable_profiling = true
+#my_enable_profiling = true
 #enable_marking = true
