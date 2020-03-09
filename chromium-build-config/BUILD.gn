@@ -43,7 +43,7 @@ if (is_nacl) {
 #========added by chenxiong starts=======
 declare_args() {
   dump_ir = false
-  enable_profiling = false
+  my_enable_profiling = false
   enable_marking = false
 }
 #========added by chenxiong ends========
@@ -255,7 +255,7 @@ config("compiler") {
       cflags_c += [ "-dump_ir=" ]
       cflags_cc += [ "-dump_ir=" ]
     }
-    if (enable_profiling) {
+    if (my_enable_profiling) {
       cflags += [ "-enable_profiling=" ]
       cflags_c += [ "-enable_profiling=" ]
       cflags_cc += [ "-enable_profiling=" ]
