@@ -52,7 +52,7 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 ##### Create Shared Memory
 1. Check `slimium/out/unique_indexes.txt` to get the total function number by look at the last line's last ID. For example, if it's `965973`, then total function number is `965974`.
 2. `cd slimium/src/shm`
-3. Edit `defs.h` to change line 5 to the total function number.
+3. Edit `defs.h` to change line 4 to the total function number. (You can also change line 5 to some key you like.)
 4. `make clean && make`
 5. Create a shared memory: `./shm_create`.
 6. Edit `11vm/llvm/lib/Transforms/Scalar` (line 178 ~ 180) based on `shm_clear.ll`(line 19 ~ 21).
