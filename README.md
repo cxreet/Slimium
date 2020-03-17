@@ -75,3 +75,9 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 	- ./out/Profiling/chrome youtube.com
 	- ~/slimium/src/shm/shm_decode (dump the executed functions)
 	```
+## Automatic Profiling
+### Profiling
+1. `cd slimium/src/profile`
+2. Edit `evolve_profiling.py` to modify the variables according to the comments.
+3. `python evolve_profiling.py ./profile_out`
+Note the profiling results about the executed functions are under the `profile_out`, each file contains the function IDs for executed functions.
