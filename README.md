@@ -1,5 +1,6 @@
 
 
+
 # Slimium
 
 ## Setup
@@ -68,3 +69,9 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 3. `cp slimium/chromium-build-config/profiling_args.gn out/Profiling/args.gn`
 4. `autoninja -C out/Profiling chrome`
 5. Note that during compiling, it runs some tests, so that some instrumented binaries would be executed and if you go to `slimium/src/shm` and run `./shm_decode`, you may see results like `In total, xxxx (0.xxx) out of 965974 functions are executed!`
+6. To profile a website such as `youtube.com`:
+	```
+	- ~/slimium/src/shm/shm_clear (clear the shared memory)
+	- ./out/Profiling/chrome youtube.com
+	- ~/slimium/src/shm/shm_decode (dump the executed functions)
+	```
