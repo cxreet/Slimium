@@ -75,9 +75,15 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 	- ./out/Profiling/chrome youtube.com
 	- ~/slimium/src/shm/shm_decode (dump the executed functions)
 	```
-## Automatic Profiling
+## Evaluation
+### Get function boundaries:
+1. `cd slimium/src/disassemble`
+2. `python disassemble_marking.py ~/chromium/src/out/Marking/chrome ~/slimium/out/function_boundaries.txt`
+3. Note that the output is in `function_boundaries`, each line is in the format of `function_id function_start_address function_end_address function_name`.
+
 ### Profiling
 1. `cd slimium/src/profile`
 2. Edit `evolve_profiling.py` to modify the variables according to the comments.
 3. `python evolve_profiling.py ./profile_out`
 Note the profiling results about the executed functions are under the `profile_out`, each file contains the function IDs for executed functions.
+
