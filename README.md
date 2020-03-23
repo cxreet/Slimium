@@ -56,7 +56,7 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 3. Edit `defs.h` to change line 4 to the total function number. (You can also change line 5 to some key you like.)
 4. `make clean && make`
 5. Create a shared memory: `./shm_create`.
-6. Edit `11vm/llvm/lib/Transforms/Scalar` (line 178 ~ 180) based on `shm_clear.ll`(line 19 ~ 21).
+6. Edit `11vm/llvm/lib/Transforms/Scalar/EnableProfiling.cpp` (line 178 ~ 180) based on `shm_clear.ll`(line 19 ~ 21).
 
 ##### Build A LLVM Pass for Profiling Instrumentation
 1. `cd 11vm`
@@ -76,14 +76,16 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 	- ~/slimium/src/shm/shm_decode (dump the executed functions)
 	```
 ## Evaluation
-### Get function boundaries:
+### 1. Get function boundaries
 1. `cd slimium/src/disassemble`
 2. `python disassemble_marking.py ~/chromium/src/out/Marking/chrome ~/slimium/out/function_boundaries.txt`
 3. Note that the output is in `function_boundaries`, each line is in the format of `function_id function_start_address function_end_address function_name`.
 
-### Profiling
+### 2. Profiling
 1. `cd slimium/src/profile`
 2. Edit `evolve_profiling.py` to modify the variables according to the comments.
 3. `python evolve_profiling.py ./profile_out`
 Note the profiling results about the executed functions are under the `profile_out`, each file contains the function IDs for executed functions.
+
+###
 
