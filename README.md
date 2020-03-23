@@ -56,7 +56,7 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 3. Edit `defs.h` to change line 4 to the total function number. (You can also change line 5 to some key you like.)
 4. `make clean && make`
 5. Create a shared memory: `./shm_create`.
-6. Edit `11vm/llvm/lib/Transforms/Scalar/EnableProfiling.cpp` (line 178 ~ 180) based on `shm_clear.ll`(line 19 ~ 21).
+6. Edit `11vm/llvm/lib/Transforms/Scalar/EnableProfiling.cpp` (line 178 ~ 179) based on `shm_clear.ll`(line 18 ~ 21).
 
 ##### Build A LLVM Pass for Profiling Instrumentation
 1. `cd 11vm`
