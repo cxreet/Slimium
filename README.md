@@ -81,11 +81,17 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 2. `python disassemble_marking.py ~/chromium/src/out/Marking/chrome ~/slimium/out/function_boundaries.txt`
 3. Note that the output is in `function_boundaries`, each line is in the format of `function_id function_start_address function_end_address function_name`.
 
-### 2. Profiling
+### 2. Extend feature-code mapping
+1. `pip install textdistance`
+2. `cd slimium/src/feature_code_mapping`
+3. Edit `auto_extend_mapping.sh` to change the variables to point to your relevant file paths
+4. Run `./auto_extend_mapping.sh ./manual_feature_code_map.json 0.9 0.9 ./extended_0.9_0.9_map.json` to get the extended feature-code map.
+5. Note that the parameters of `auto_extend_mapping.sh` are: the manually defined feature-code map; the call number threshold; the function name similarity threshold; the new extended feature-code map.
+
+### 3. Profiling
 1. `cd slimium/src/profile`
 2. Edit `evolve_profiling.py` to modify the variables according to the comments.
 3. `python evolve_profiling.py ./profile_out`
 Note the profiling results about the executed functions are under the `profile_out`, each file contains the function IDs for executed functions.
 
-###
 
