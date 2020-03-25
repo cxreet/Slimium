@@ -81,7 +81,7 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 2. `python disassemble_marking.py ~/chromium/src/out/Marking/chrome ~/slimium/out/function_boundaries.txt`
 3. Note that the output is in `function_boundaries`, each line is in the format of `function_id function_start_address function_end_address function_name`.
 
-### 2. Extend feature-code mapping
+### 2. Extend feature-code map
 1. `cd slimium/src/feature_code_mapping`
 2. The `manual_feature_code_map.json` is the manually defined feature-code map, and all the extended prebuilt feature-code maps are under `src/feature_code_mapping/extended_feature_code_maps/`.
 3. If you want to generate the extended feature-code maps by yourself:
@@ -97,4 +97,4 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 3. `python evolve_profiling.py ./profile_out`
 Note the profiling results about the executed functions are under the `profile_out`, each file contains the function IDs for executed functions.
 
-
+### 4. Rewriting
