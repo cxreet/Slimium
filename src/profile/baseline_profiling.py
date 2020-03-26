@@ -8,16 +8,14 @@ SHM_DECODE = "/home/chenxiong/slimium/src/shm/shm_decode"
 
 """
 Customize following variables:
-    - WEBSITE_NUM: number of websites to profile
     - SLIDING_WINDOW_SIZE: sliding window size
     - LOADING_TIME: how many seconds for each page loading
 """
-WEBSITE_NUM = 1000
 SLIDING_WINDOW_SIZE = 10
 LOADING_TIME = 5
 
 def usage():
-    print """python evolve_profiling.py out_dir"""
+    print """python baseline_profiling.py out_log_file"""
     sys.exit(1)
 
 def execute(cmd):
@@ -26,7 +24,7 @@ def execute(cmd):
     p.communicate()
 
 
-def kill_chrome(website):
+def kill_chrome():
     # get the chrome pid
     cmd = "ps -ef | grep chrome"
     p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
@@ -34,32 +32,35 @@ def kill_chrome(website):
 
     for line in out.split("\n"):
         line = line.strip()
-        if line.endswith(website):
+        tokens = line.split()
 
-            pid = line.split()[1]
+        if len(tokens) < 2:
+            continue
+
+        pid = tokens[1]
         
-            # kill the chrome
-            cmd = "sudo kill -15 " + pid
-            execute(cmd)
+        # kill the chrome
+        cmd = "sudo kill -15 " + pid
+        execute(cmd)
 
-def write_log(website, log_idx, idxs):
-    out_dir = os.path.join(sys.argv[1], website)
-    out_f = os.path.join(out_dir, website+"_"+str(log_idx)+".log")
+def write_log():
+    cmd = SHM_DECODE
+    p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
+    out = p.communicate()[0]
+    idxs = []
+    for line in out.split("\n"):
+        line = line.strip()
+        try:
+            idx = int(line, 10)
+            idxs.append(idx)
+        except:
+            pass
 
-    with open(out_f, 'w') as out_f:
+    with open(sys.argv[1], 'w') as out_f:
         for idx in idxs:
-            out_f.write(str(idx) + "\n")
+            out_f.write("%d\n" % (idx))
 
-def profile_website(website):
-    out_dir = os.path.join(sys.argv[1], website)
-
-    if os.path.exists(out_dir):
-        print "skip ", website
-        return
-
-    # create the out directory for the website
-    cmd = "mkdir -p " + out_dir
-    execute(cmd)
+def profile_blank_website():
     
     # clear the fingerprint
     cmd = SHM_CLEAR
@@ -68,9 +69,8 @@ def profile_website(website):
     # do the profiling until it gets steady
     sliding_window = []
     sliding_idx = 0
-    log_idx = 0
     while True:
-        cmd = CHROME + " " + website
+        cmd = CHROME
         subprocess.Popen(cmd, shell=True)
         
         # sleep for some seconds
@@ -89,8 +89,6 @@ def profile_website(website):
                 pass
 
         print "There are ", len(idxs), "functions executed"
-        log_idx += 1
-        write_log(website, log_idx, idxs)
 
         if sliding_idx != SLIDING_WINDOW_SIZE:
             sliding_window.append(len(idxs))
@@ -104,7 +102,7 @@ def profile_website(website):
                     break
 
             if all_equal and sliding_window[SLIDING_WINDOW_SIZE-1] == len(idxs):
-                kill_chrome(website)
+                kill_chrome()
                 break
             else:
                 for i in range(0, SLIDING_WINDOW_SIZE-1):
@@ -112,29 +110,16 @@ def profile_website(website):
                 sliding_window[SLIDING_WINDOW_SIZE-1] = len(idxs)
         
         # kill chrome
-        kill_chrome(website)
+        kill_chrome()
 
     return
 
 def main():
-    cmd = "mkdir -p " + sys.argv[1]
-    execute(cmd)
 
-    all_websites = []
-    with open("top-1m.csv", 'r') as in_f:
-        for line in in_f.readlines():
-            line = line.strip()
-            website = line.split(",")[-1]
-            all_websites.append(website)
-
-    for i in range(0, WEBSITE_NUM):
-        website = all_websites[i]
-        profile_website(website)
+    profile_blank_website()
+    write_log()
 
     return
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        usage()
-
     main()

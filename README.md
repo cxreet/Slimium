@@ -92,6 +92,13 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 	- Or, you can just run `python auto_generate_extended_feature_code_maps.py` to generate all the extended feature-code maps, the output files would be put under `extended_feature_code_maps`.
 
 ### 3. Profiling
+#### Base (blank website)
+1. `cd slimium/src/profile`
+2. Edit `baseline_profiling.py` to modify the variables according to the comments.
+3. `python baseline_profiling.py ~/slimium/out/baseline.log`
+4. Note that the executed functions' IDs are dumped into `~/slimium/out/baseline.log`.
+
+#### Top websites
 1. `cd slimium/src/profile`
 2. Edit `evolve_profiling.py` to modify the variables according to the comments.
 3. `python evolve_profiling.py ./profile_out`
