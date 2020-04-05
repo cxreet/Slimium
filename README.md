@@ -111,3 +111,11 @@ Note the profiling results about the executed functions are under the `profile_o
 	 in four arguments: (1) the feature code mapping file. (2) website number. (3) nondeterministic threshold (i.e., when should a function be considered as nondeterministic? say if there are 800 websites in total, and the threshold is 400, 
    and function A is nondeterministic in 200 websites' profilings, and function B is nondeterministic in 500 websites' profilings. If the threshold is 400, then only B should be considered as nondeterministic; if the threshold
    is 150, then both A and B should be considered nondeterministic.). (4) The output file.
+
+#### Collect the last profiling log of each website
+1. `cd slimium/src/rewrite`
+2. `python collect_logs.py ~/slimium/out/profile_out/ ~/slimium/out/last_logs/`. The last log of each website is under `last_logs`.
+
+#### Get functions to be removed for each website
+1. `cd slimium/src/rewrite`
+2. `./get_removable_functions.sh ~/slimium/src/feature_code_mapping/manual_feature_code_map.json ~/slimium/out/removeable_functions 0.5`
