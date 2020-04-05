@@ -107,7 +107,8 @@ Note the profiling results about the executed functions are under the `profile_o
 ### 4. Rewriting
 #### Get nondeterministic functions
 1. `cd slimium/src/rewrite`
-2. `./count_nondeterministic_code.sh ~/slimium/src/feature_code_mapping/manual_feature_code_map.json 800 800 ~/slimium/out/nondeterministic_funcs.txt`. Note that `count_nondeterministic_code.sh` takes
+2. Edit `./count_nondeterministic_code.sh` to change the variables.
+3. `./count_nondeterministic_code.sh ~/slimium/src/feature_code_mapping/manual_feature_code_map.json 800 800 ~/slimium/out/nondeterministic_funcs.txt`. Note that `count_nondeterministic_code.sh` takes
 	 in four arguments: (1) the feature code mapping file. (2) website number. (3) nondeterministic threshold (i.e., when should a function be considered as nondeterministic? say if there are 800 websites in total, and the threshold is 400, 
    and function A is nondeterministic in 200 websites' profilings, and function B is nondeterministic in 500 websites' profilings. If the threshold is 400, then only B should be considered as nondeterministic; if the threshold
    is 150, then both A and B should be considered nondeterministic.). (4) The output file.
@@ -118,4 +119,5 @@ Note the profiling results about the executed functions are under the `profile_o
 
 #### Get functions to be removed for each website
 1. `cd slimium/src/rewrite`
-2. `./get_removable_functions.sh ~/slimium/src/feature_code_mapping/manual_feature_code_map.json ~/slimium/out/removeable_functions 0.5`
+2. Edit `./get_removable_functions.sh` to change the variables.
+2. `./get_removable_functions.sh ~/slimium/src/feature_code_mapping/manual_feature_code_map.json ~/slimium/out/removeable_functions 0.5`. Note that `get_removable_functions.sh`: (1) the feature code mapping file. (2) the output directory. (3) the code coverage threshold (i.e., if the code coverage of certain feature exceeds the threshold, the feature should be considered removable).
