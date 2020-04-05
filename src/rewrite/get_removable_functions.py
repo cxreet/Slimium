@@ -279,7 +279,7 @@ class FeatureFunctionMappingGenerator(object):
                         self.feature_files_m[feature].add(file_path)
         return self.feature_files_m
 
-    def compute_feature_functions_map(self, m):
+    def compute_feature_functions_map(self, m, out_dir):
         visited = set()
         for feature in m:
             self.feature_funcs_m[feature] = set()
@@ -304,7 +304,7 @@ class FeatureFunctionMappingGenerator(object):
                         self.total_size += bin_func.size - 13
         
         logging.info("Total code size of identified feature: " + str(float(self.total_size)/1000000.0) + " MB")
-        with open("feature_func_num_code_size.txt", 'w') as o_f:
+        with open(os.path.join(out_dir, "feature_func_num_code_size.txt"), 'w') as o_f:
             for feature in sorted(m.keys()):
                 o_f.write(feature+": " + str(self.feature_func_num_m[feature]) + " " + str(self.feature_code_size_m[feature]) + "\n")
         return
@@ -422,9 +422,9 @@ if __name__ == '__main__':
     
     # relate bin funcs for each feature
     logging.info("Mapping functions with features.")
-    FFMG.compute_feature_functions_map(m)
+    FFMG.compute_feature_functions_map(m, out_dir)
 
-    with open("feature_functions.json", 'w') as out_f:
+    with open(os.path.join(out_dir, "feature_functions.json"), 'w') as out_f:
         data = dict()
         for feature in FFMG.feature_funcs_m:
             data[feature] = list()

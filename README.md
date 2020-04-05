@@ -121,4 +121,9 @@ Note the profiling results about the executed functions are under the `profile_o
 1. `cd slimium/src/rewrite`
 2. Edit `./get_removable_functions.sh` to change the variables.
 3. `./get_removable_functions.sh ~/slimium/src/feature_code_mapping/manual_feature_code_map.json ~/slimium/out/removeable_functions 0.5`. Note that `get_removable_functions.sh`: (1) the feature code mapping file. (2) the output directory. (3) the code coverage threshold (i.e., if the code coverage of certain feature exceeds the threshold, the feature should be considered removable).
-4. `get_removable_functions.sh` would also generate two files under current working directory: `feature_func_num_code_size.txt` and `feature_functions.json`. The first one contains function number and code size of each feature. The second one contains the function ids of each feature.
+4. `get_removable_functions.sh` would also generate two files under the output directory: `feature_func_num_code_size.txt` and `feature_functions.json`. The first one contains function number and code size of each feature. The second one contains the function ids of each feature.
+
+#### Rewrite chrome
+1. `cd slimium/src/rewrite`
+2. `python rewrite.py -c ~/chromium/src/out/Marking/chrome -i ~/slimium/out/removeable_functions/youtube.com.log -o ./ -m ~/slimium/out/removeable_functions/feature_functions.json`
+3. Note that `rewrite.py` takes in four arguments: (1) the orginal chrome binary. (2) the file contains removable functions ids for a website. (3) the output directory. (4) the file contains the function ids of each feature. After running `rewrite.py`, a debloated binary `website_chrome` would be generated under the output directory.
