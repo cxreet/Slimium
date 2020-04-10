@@ -59,7 +59,10 @@ class FeatureFunctionMappingGenerator(object):
                 line = line.strip()
                 func_id = int(line)
                 self.profiling_base.add(func_id)
-
+    
+    """
+    Added functions that are executed by all websites to `profiling_base`
+    """
     def extend_profiling_base(self, logs_dir):
         for fname in os.listdir(logs_dir):
             self.log_num += 1
@@ -310,16 +313,35 @@ class FeatureFunctionMappingGenerator(object):
         return
     
     # compute the features to be removed with executed functions
-    def remove_features_for_executed_functions(self, executed_func_ids):
+    def remove_features_for_executed_functions(self, executed_func_ids, nondeterministic_functions):
+        # check what feature code is totally unexecuted
+        unexecuted_features = set()
+        for feature in self.feature_funcs_m:
+            executed = False
+            for func in self.feature_funcs_m[feature]:
+                if (func.fid in executed_func_ids) or (func.fid in self.profiling_base):
+                    executed = True
+                    break
+
+            if not executed:
+                unexecuted_features.add(feature)
+
         # compute the code coverage for each feature
         logging.info("Compute code coverage for each feature")
         executed_feature_funcs = dict()
         for feature in self.feature_funcs_m:
+            # skip unexecuted features
+            if feature in unexecuted_features:
+                continue
+
             executed_feature_funcs[feature] = set()
             for func in self.feature_funcs_m[feature]:
                 if func.fid in executed_func_ids:
                     executed_feature_funcs[feature].add(func)
                 elif func.fid in self.profiling_base:
+                    executed_feature_funcs[feature].add(func)
+                elif func.fid in nondeterministic_functions:
+                    # only add the nondeterministic functions when the some of the feature code is executed
                     executed_feature_funcs[feature].add(func)
     
         # get the features to be removed
@@ -386,13 +408,13 @@ if __name__ == '__main__':
         p.communicate()
 
 
-    nondeterminisitc_functions = set()
+    nondeterministic_functions = set()
     with open(nondeterministic_code_file, 'r') as in_f:
         for line in in_f.readlines():
             line = line.strip()
-            nondeterminisitc_functions.add(int(line, 10))
+            nondeterministic_functions.add(int(line, 10))
 
-    # manual defined feature and code mapping
+    # feature and code mapping
     feature_source_map = dict()
     with open(feature_code_mapping_json, 'r') as in_f:
         feature_source_map = json.loads(in_f.read())
@@ -406,7 +428,7 @@ if __name__ == '__main__':
     
     # initialize the object to prepare everything
     FFMG.init()
-    FFMG.extend_profiling_base(log_dir)
+    #FFMG.extend_profiling_base(log_dir)
     FFMG.generate_file_deps()
     logging.info("Total files in binary: " + str(len(FFMG.bin_files)))
 
@@ -432,7 +454,6 @@ if __name__ == '__main__':
                 data[feature].append(bin_func.fid)
         json.dump(data, out_f, indent=4, sort_keys=True)
 
-    
     total_removed_size = 0
     website_num = 0
 
@@ -450,11 +471,7 @@ if __name__ == '__main__':
                 func_id = int(line, 10)
                 executed_func_ids.add(func_id)
 
-        # add the nondeterminisitc_functions
-        for func_id in nondeterminisitc_functions:
-            executed_func_ids.add(func_id)
-
-        (funcs_to_remove, executed_feature_funcs) = FFMG.remove_features_for_executed_functions(executed_func_ids)
+        (funcs_to_remove, executed_feature_funcs) = FFMG.remove_features_for_executed_functions(executed_func_ids, nondeterministic_functions)
 
         # dump the ids to remove
         with open(out_file, 'w') as out_f:
