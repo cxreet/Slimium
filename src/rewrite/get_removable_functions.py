@@ -330,11 +330,12 @@ class FeatureFunctionMappingGenerator(object):
         logging.info("Compute code coverage for each feature")
         executed_feature_funcs = dict()
         for feature in self.feature_funcs_m:
+            executed_feature_funcs[feature] = set()
+
             # skip unexecuted features
             if feature in unexecuted_features:
                 continue
 
-            executed_feature_funcs[feature] = set()
             for func in self.feature_funcs_m[feature]:
                 if func.fid in executed_func_ids:
                     executed_feature_funcs[feature].add(func)
@@ -354,8 +355,10 @@ class FeatureFunctionMappingGenerator(object):
             executed_size = 0
             for func in executed_feature_funcs[feature]:
                 executed_size += func.size - 13
-
-            code_cov = float(executed_size)/float(total_size)
+            
+            code_cov = 0.0
+            if total_size > 0:
+                code_cov = float(executed_size)/float(total_size)
             if code_cov < self.code_cov_threshold:
                 features_to_remove.add(feature)
         logging.info("To remove the following features:")
