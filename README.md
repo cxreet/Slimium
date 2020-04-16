@@ -108,11 +108,6 @@ Note the profiling results about the executed functions are under the `profile_o
 #### Get nondeterministic functions
 1. `cd slimium/src/rewrite`
 2. `python simple_count_nondeterministic_code.py -l ~/slimium/out/profile_out/ -o ~/slimium/out/nondeterministic_funcs_manual_map_1000_1.txt -n 1000 -a 1`
-#2. Edit `./count_nondeterministic_code.sh` to change the variables.
-#3. `./count_nondeterministic_code.sh ~/slimium/src/feature_code_mapping/manual_feature_code_map.json 800 800 ~/slimium/out/nondeterministic_funcs.txt`. Note that `count_nondeterministic_code.sh` takes
-#	 in four arguments: (1) the feature code mapping file. (2) website number. (3) nondeterministic threshold (i.e., when should a function be considered as nondeterministic? say if there are 800 websites in total, and the threshold is 400, 
-#   and function A is nondeterministic in 200 websites' profilings, and function B is nondeterministic in 500 websites' profilings. If the threshold is 400, then only B should be considered as nondeterministic; if the threshold
-#   is 150, then both A and B should be considered nondeterministic.). (4) The output file.
 
 #### Collect the last profiling log of each website
 1. `cd slimium/src/rewrite`
