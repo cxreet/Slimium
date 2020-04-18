@@ -1,0 +1,9 @@
+News: Cnn.com Nytimes.com Washingtonpost.com Cnbc.com 4
+Sports: Espn.com Bleacherreport.com Nfl.com Nba.com 4
+Travel: Booking.com Tripadvisor.com Expedia.com Priceline.com 4
+Financial: Paypal.com Chase.com Discover.com Americanexpress.com 4
+Shopping: Amazon.com Ebay.com Walmart.com Costco.com 4
+Video: Youtube.com Netflix.com Amazon.com Disneyplus.com 4
+Airline: aa.com delta.com united.com spirit.com 4
+Email: gmail.com mail.yahoo.com outlook.office.com icloud.com 4
+Social Media: Twitter.com Facebook.com instagram.com web.wechat.com 4
