@@ -70,13 +70,15 @@ def test_website(website, remove_file, out_dir, feature_funcs_m):
             # exclude some features
             if "Web Notifications" in feature_funcs_m:
                 if f_id in feature_funcs_m["Web Notifications"]:
-                    print "pass"
+                    #print "pass"
                     continue
             else:
                 print "cannot find Web Notifications"
+            """
             if "Shared Web Workers" in feature_funcs_m:
                 if f_id in feature_funcs_m["Shared Web Workers"]:
                     continue
+            """
 
             start = int(start, 16)
             end = int(end, 16)
@@ -137,6 +139,9 @@ def main():
     
     i = 0
     for fname in os.listdir(input_dir):
+        if not fname.endswith(".log"):
+            continue
+
         i += 1
 
         website = fname[:-4]
