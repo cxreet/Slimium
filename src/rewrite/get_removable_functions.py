@@ -314,17 +314,10 @@ class FeatureFunctionMappingGenerator(object):
     
     # compute the features to be removed with executed functions
     def remove_features_for_executed_functions(self, executed_func_ids, nondeterministic_functions):
-        # check what feature code is totally unexecuted
-        unexecuted_features = set()
-        for feature in self.feature_funcs_m:
-            executed = False
-            for func in self.feature_funcs_m[feature]:
-                if (func.fid in executed_func_ids) or (func.fid in self.profiling_base):
-                    executed = True
-                    break
-
-            if not executed:
-                unexecuted_features.add(feature)
+        # add nondeterministic_functions
+        new_executed_func_ids = executed_func_ids
+        for func_id in nondeterministic_functions:
+            new_executed_func_ids.add(func_id)
 
         # compute the code coverage for each feature
         logging.info("Compute code coverage for each feature")
@@ -332,17 +325,10 @@ class FeatureFunctionMappingGenerator(object):
         for feature in self.feature_funcs_m:
             executed_feature_funcs[feature] = set()
 
-            # skip unexecuted features
-            if feature in unexecuted_features:
-                continue
-
             for func in self.feature_funcs_m[feature]:
-                if func.fid in executed_func_ids:
+                if func.fid in new_executed_func_ids:
                     executed_feature_funcs[feature].add(func)
                 elif func.fid in self.profiling_base:
-                    executed_feature_funcs[feature].add(func)
-                elif func.fid in nondeterministic_functions:
-                    # only add the nondeterministic functions when the some of the feature code is executed
                     executed_feature_funcs[feature].add(func)
     
         # get the features to be removed
@@ -471,8 +457,11 @@ if __name__ == '__main__':
         with open(log, 'r') as in_f:
             for line in in_f.readlines():
                 line = line.strip().split()[0]
-                func_id = int(line, 10)
-                executed_func_ids.add(func_id)
+                try:
+                    func_id = int(line, 10)
+                    executed_func_ids.add(func_id)
+                except:
+                    pass
 
         (funcs_to_remove, executed_feature_funcs) = FFMG.remove_features_for_executed_functions(executed_func_ids, nondeterministic_functions)
 
