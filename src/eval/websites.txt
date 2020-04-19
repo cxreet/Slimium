@@ -6,5 +6,5 @@ Shopping: Amazon.com Ebay.com Walmart.com Costco.com 4
 Video: Youtube.com Netflix.com Amazon.com Disneyplus.com 4
 Airline: aa.com delta.com united.com spirit.com 4
 Email: gmail.com mail.yahoo.com outlook.office.com icloud.com 4
-Social Media: Twitter.com Facebook.com instagram.com web.wechat.com 4
+Social Media: Twitter.com Facebook.com instagram.com web.whatsapp.com 4
 Remote Working: zoom.us bluejeans.com slack.com teams.microsoft.com 4
