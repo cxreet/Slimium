@@ -19,9 +19,11 @@ def execute(cmd):
 def main():
     parser = OptionParser()
     parser.add_option("-o", "--out", dest="out_dir", help="The output dir.")
+    parser.add_option("-i", "--input", dest="input_dir", help="The logs dir.")
 
     (options, args) = parser.parse_args()
     out_dir = options.out_dir
+    input_dir = options.input_dir
 
     cwd = os.path.dirname(os.path.abspath(__file__))
     os.chdir(cwd + "/../rewrite")
@@ -33,13 +35,13 @@ def main():
     for i in range(2, 10):
         code_cov_threshold = float(i) * 0.05
         new_out_dir = os.path.join(out_dir, "code_cov_"+str(code_cov_threshold))
-        cmd = BIN + " " + manual_feature_code_map + " " + os.path.join(new_out_dir, "manual") + " " + str(code_cov_threshold)
+        cmd = BIN + " " + input_dir + " " + manual_feature_code_map + " " + os.path.join(new_out_dir, "manual") + " " + str(code_cov_threshold)
         all_cmds.append(cmd)
         #execute(cmd)
 
         for fname in os.listdir(extended_feature_code_maps_dir):
             tmp_name = fname.split(".json")[0]
-            cmd = BIN + " " + os.path.join(extended_feature_code_maps_dir, fname) + " " + os.path.join(new_out_dir, tmp_name) + " " + str(code_cov_threshold)
+            cmd = BIN + " " + input_dir + " " + os.path.join(extended_feature_code_maps_dir, fname) + " " + os.path.join(new_out_dir, tmp_name) + " " + str(code_cov_threshold)
             #execute(cmd)
             all_cmds.append(cmd)
 
