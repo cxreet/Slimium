@@ -475,5 +475,17 @@ if __name__ == '__main__':
             
             out_f.write("#Removed " + str(float(removed_size)/1000000.0) + " MB\n")
             total_removed_size += removed_size
+        """
+        website_num += 1
+        removed_size = 0
+        for (f_id, start, end) in funcs_to_remove:
+            removed_size += end - start + 1 - 13
+        total_removed_size += removed_size
+        """
     
+    """
+    with open(os.path.join(out_dir, "avg_removed_code_size.txt"), 'w') as out_f:
+        out_f.write(str(float(total_removed_size)/(1000000.0*website_num)) + " MB\n")
+    """
+
     logging.info("Avg removed code: " + str(float(total_removed_size)/(1000000.0*website_num)) + " MB\n")
