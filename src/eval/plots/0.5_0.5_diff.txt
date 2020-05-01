@@ -1,0 +1,170 @@
+AbortController & AbortSignal,33,5154,33,5154,JS API
+Accelerometer,13,874,23,1630,JS API
+Accessibility,3015,771678,3114,789812,HTML5
+Ambient Light Sensor,11,790,11,790,JS API
+Audio element,2009,501874,2041,509362,JS API
+Autoplay,65,13698,65,13698,JS API
+Background Sync API,571,111622,571,111622,JS API
+Base64 encoding and decoding,12,2344,12,2344,JS API
+Basic console logging functions,122,49524,122,49524,JS API
+Battery Status API,86,9388,117,13834,JS API
+Beacon API,13,2058,13,2058,JS API
+BigInt,95,34174,95,34174,JS API
+Blob,924,220776,805,198218,JS API
+BroadcastChannel,99,14678,99,14678,JS API
+CSS.supports() API,3,614,3,614,JS API
+Canvas 2D,1111,244862,1994,389028,HTML5
+Channel messaging,102,31132,102,31132,JS API
+Constraint Validation API,76,11080,87,11278,JS API
+Credential Management API,216,54752,1238,350604,JS API
+Cross-Origin Resource Sharing,188,65448,208,70400,JS API
+CustomEvent,10,1124,10,1124,JS API
+DOM Element,568,142768,568,142768,JS API
+DOM Parsing and Serialization,451,111094,561,120754,JS API
+DevTools,7054,1857388,13169,3284562,Non-web
+DeviceOrientation & DeviceMotion events,265,31202,266,31252,JS API
+Directory selection from file input,320,52416,343,54142,JS API
+Do Not Track API,9,1394,9,1394,JS API
+Document Object Model Range,89,37490,89,37490,JS API
+Document.domain,929,208466,929,208466,JS API
+Document.execCommand(),6,1276,6,1276,JS API
+Encrypted Media Extensions,344,58736,449,89058,JS API
+Extensions,0,0,36013,8204858,Non-web
+FIDO U2F API,1407,453790,1527,479790,JS API
+Feature Policy,94,30460,94,30460,JS API
+Fetch,2312,475920,2487,515870,JS API
+File API,1933,405786,1839,386878,JS API
+Filesystem & FileWriter API,703,115790,703,115790,JS API
+Full Screen API,196,42168,196,42168,JS API
+Gamepad API,580,119928,580,119928,JS API
+Geolocation,193,34834,230,40444,JS API
+Gyroscope,13,906,13,906,JS API
+High Resolution Time API,462,102172,477,104250,JS API
+IndexedDB,2350,680012,2358,681420,JS API
+Internationalization API,71,44430,73,45170,JS API
+IntersectionObserver,170,42420,187,43126,JS API
+Intl.PluralRules API,13,7226,13,7226,JS API
+Magnetometer,13,906,13,906,JS API
+Media Capture from DOM Elements API,133,28026,198,52332,JS API
+Media Source Extensions,281,61298,486,88636,JS API
+MediaRecorder API,275,67558,293,68746,JS API
+Mutation Observer,175,33118,175,33118,JS API
+NACL & PNACL,652,183320,786,210628,Non-web
+Native Filesystem API,173,42874,173,42874,JS API
+Network Information API,64,8896,64,8896,JS API
+Orientation Sensor,37,3962,58,7828,JS API
+PDF,7863,2450686,8397,2746490,Non-web
+Page Visibility,946,213108,950,214412,JS API
+Payment Request API,394,97636,961,246642,JS API
+Permissions API,477,114186,882,206324,JS API
+Picture-in-Picture,152,22256,192,27648,JS API
+Pointer Lock API,14,1772,14,1772,JS API
+Pointer events,146,42116,161,42594,JS API
+Push API,529,116642,529,116642,JS API
+Resize Observer,122,26532,122,26532,JS API
+SVG,3673,646978,4859,960470,HTML5
+Screen Orientation,148,23176,148,23176,JS API
+Selection API,499,152790,822,265756,JS API
+Server-sent events,75,11254,75,11254,JS API
+Service Workers,3639,886094,4184,998832,JS API
+Shared Web Workers,343,58606,383,65870,JS API
+Speech Recognition API,565,114762,715,206214,JS API
+Speech Synthesis API,103,14686,169,21314,JS API
+Streams,648,106912,652,110376,JS API
+Synchronous Clipboard API,408,86736,568,143232,JS API
+TextEncoder & TextDecoder,54,10284,54,10284,JS API
+Timing API,733,167610,715,159574,JS API
+Touch events,105,58498,166,69052,JS API
+URL,123,32278,82,19380,JS API
+Vibration API,74,10852,74,10852,JS API
+Video element,425,80082,670,172876,JS API
+Wake Lock API,110,17324,110,17324,JS API
+Web Animations API,2329,645218,3762,965092,JS API
+Web Audio API,1765,396394,3165,700698,JS API
+Web Authentication API,28,1944,28,1944,JS API
+Web Bluetooth,4075,1026070,6037,1401978,JS API
+Web Cryptography,652,145384,767,178654,JS API
+Web MIDI API,278,43692,278,43692,JS API
+Web Notifications,1539,340774,1727,388382,JS API
+Web SQL Database,691,127510,706,132420,JS API
+Web Sockets,834,174660,1200,262496,JS API
+Web Storage - name/value pairs,3013,657626,3262,723628,JS API
+Web Workers,1077,172474,2643,520278,JS API
+WebGL (Canvas 3D),1731,310566,1829,461146,JS API
+WebGPU,304,57552,398,61900,HTML5
+WebRTC Peer-to-peer connections,14944,4344512,19439,5535118,JS API
+WebUSB,333,79194,333,79194,JS API
+WebVR API,250,54020,250,54020,JS API
+WebXR Device API,767,152686,906,186340,JS API
+Window,325,73034,329,73618,JS API
+XMLHttpRequest advanced features,162,40596,164,41032,JS API
+console.time and console.timeEnd,113,48706,122,49524,JS API
+createImageBitmap,609,114434,767,275550,JS API
+crypto.getRandomValues(),6,636,6,636,JS API
+document.currentScript,1071,228910,1073,229010,JS API
+document.evaluate & XPath,302,77388,302,77388,JS API
+execution-while-not-rendered,1029,216074,1029,216074,JS API
+execution-while-out-of-viewport,2031,461918,5715,1245862,JS API
+getUserMedia/Stream API,79,12798,79,12798,JS API
+navigator.hardwareConcurrency,1,18,1,18,JS API
+oversized-images,59,18214,77,23754,JS API
+requestAnimationFrame,81,18242,81,18242,JS API
+requestIdleCallback,1175,259582,1175,259582,JS API
+third_party_abseil-cpp,14,1836,103,14094,Non-web
+third_party_angle,1511,638014,1543,652606,Non-web
+third_party_boringssl,2119,817870,2991,1217662,Non-web
+third_party_breakpad,109,48938,109,48938,Non-web
+third_party_brotli,42,34116,42,34116,Non-web
+third_party_cacheinvalidation,323,100870,323,100870,Non-web
+third_party_ced,46,50796,46,50796,Non-web
+third_party_cld_3,195,57734,195,57734,Non-web
+third_party_crc32c,3,3206,3,3206,Non-web
+third_party_dav1d,423,318210,423,318210,Non-web
+third_party_ffmpeg,1453,794074,1459,795437,Non-web
+third_party_flac,149,91242,173,97306,Non-web
+third_party_fontconfig,393,126178,394,126308,Non-web
+third_party_freetype,756,396184,780,399832,Non-web
+third_party_harfbuzz-ng,991,559998,1108,617160,Non-web
+third_party_hunspell,264,220832,273,222274,Non-web
+third_party_iccjpeg,2,1300,2,1300,Non-web
+third_party_icu,5652,1769176,12367,3735742,Non-web
+third_party_inspector_protocol,121,47618,197,85018,Non-web
+third_party_jsoncpp,79,37294,87,38846,Non-web
+third_party_leveldatabase,578,171508,725,200490,Non-web
+third_party_libaddressinput,246,84476,283,92054,Non-web
+third_party_libjingle_xmpp,283,61718,532,113496,Non-web
+third_party_libjpeg_turbo,333,212938,423,233038,Non-web
+third_party_libphonenumber,164,62824,212,106040,Non-web
+third_party_libpng,231,99422,339,120150,Non-web
+third_party_libsrtp,121,34194,121,34194,Non-web
+third_party_libsync,1,162,1,162,Non-web
+third_party_libvpx,1707,1494358,1738,1499060,Non-web
+third_party_libwebm,111,40503,111,40503,Non-web
+third_party_libwebp,673,400178,673,400178,Non-web
+third_party_libxml,732,370792,977,497426,Non-web
+third_party_libxslt,240,126368,771,337590,Non-web
+third_party_libyuv,455,171566,455,171566,Non-web
+third_party_lzma_sdk,5,1402,6,1452,Non-web
+third_party_modp_b64,2,772,2,772,Non-web
+third_party_openscreen,1,66,1,66,Non-web
+third_party_opus,278,309900,633,468847,Non-web
+third_party_ots,209,137810,221,141434,Non-web
+third_party_perfetto,649,171570,713,189506,Non-web
+third_party_pffft,23,21966,35,23078,Non-web
+third_party_re2,320,167968,320,167968,Non-web
+third_party_s2cellid,8,2272,8,2272,Non-web
+third_party_sfntly,1350,113612,1350,113612,Non-web
+third_party_smhasher,5,2330,6,2380,Non-web
+third_party_snappy,20,4472,20,4472,Non-web
+third_party_sqlite,864,1012912,1150,1057836,Non-web
+third_party_tcmalloc,163,36233,248,71053,Non-web
+third_party_unrar,384,174752,384,174752,Non-web
+third_party_usrsctp,397,309786,397,309786,Non-web
+third_party_webrtc_overrides,36,3416,307,144070,Non-web
+third_party_woff2,18,24964,18,24964,Non-web
+third_party_zlib,177,92338,406,143644,Non-web
+wasm,1189,870671,5155,2486246,Wasm
+HTML5,8103,1721070,10365,2201210
+JS API,71458,17287892,91762,22371700
+Non-web,40998,16526428,94569,29951904
+Wasm,1189,870671,5155,2486246
