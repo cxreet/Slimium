@@ -1,0 +1,164 @@
+AbortController & AbortSignal , 33 , 27 , 5154 , 4502
+Accelerometer , 13 , 0 , 874 , 0
+Accessibility , 3031 , 221 , 773422 , 46458
+Ambient Light Sensor , 11 , 0 , 790 , 0
+Audio element , 2015 , 530 , 502702 , 148660
+Autoplay , 65 , 54 , 13698 , 12732
+Background Sync API , 571 , 99 , 111622 , 20166
+Base64 encoding and decoding , 12 , 11 , 2344 , 2278
+Basic console logging functions , 122 , 47 , 49524 , 24510
+Battery Status API , 104 , 73 , 11744 , 9554
+Beacon API , 13 , 8 , 2058 , 1872
+BigInt , 95 , 0 , 34174 , 0
+Blob , 805 , 500 , 198218 , 136824
+BroadcastChannel , 99 , 63 , 14678 , 12638
+CSS.supports() API , 3 , 3 , 614 , 614
+Canvas 2D , 1180 , 433 , 253832 , 138946
+Channel messaging , 102 , 72 , 31132 , 25760
+Constraint Validation API , 87 , 48 , 11278 , 7664
+Credential Management API , 236 , 66 , 58424 , 18020
+Cross-Origin Resource Sharing , 196 , 160 , 68472 , 60928
+CustomEvent , 10 , 8 , 1124 , 1008
+DOM Element , 568 , 428 , 142768 , 119288
+DOM Parsing and Serialization , 457 , 322 , 111506 , 89572
+DevTools , 7552 , 476 , 1952992 , 107464
+DeviceOrientation & DeviceMotion events , 265 , 177 , 31202 , 23122
+Directory selection from file input , 324 , 153 , 53128 , 23266
+Do Not Track API , 9 , 6 , 1394 , 1212
+Document Object Model Range , 89 , 57 , 37490 , 26162
+Document.domain , 929 , 618 , 208466 , 162436
+Document.execCommand() , 6 , 1 , 1276 , 482
+Encrypted Media Extensions , 347 , 50 , 58742 , 13412
+Extensions , 22955 , 2860 , 5109622 , 749496
+FIDO U2F API , 1477 , 0 , 473066 , 0
+Feature Policy , 94 , 64 , 30460 , 21648
+Fetch , 2377 , 1469 , 488562 , 354890
+File API , 1826 , 472 , 385668 , 124224
+Filesystem & FileWriter API , 703 , 142 , 115790 , 26860
+Full Screen API , 196 , 26 , 42168 , 4292
+Gamepad API , 580 , 150 , 119928 , 35180
+Geolocation , 193 , 88 , 34834 , 17584
+Gyroscope , 13 , 0 , 906 , 0
+High Resolution Time API , 464 , 366 , 102480 , 90060
+IndexedDB , 2350 , 1408 , 680012 , 448656
+Internationalization API , 73 , 60 , 45170 , 42168
+IntersectionObserver , 187 , 148 , 43126 , 40952
+Intl.PluralRules API , 13 , 9 , 7226 , 5090
+Magnetometer , 13 , 0 , 906 , 0
+Media Capture from DOM Elements API , 198 , 0 , 52332 , 0
+Media Source Extensions , 292 , 167 , 61752 , 39774
+MediaRecorder API , 293 , 0 , 68746 , 0
+Mutation Observer , 175 , 131 , 33118 , 29174
+NACL & PNACL , 652 , 41 , 183320 , 10946
+Native Filesystem API , 173 , 0 , 42874 , 0
+Network Information API , 64 , 34 , 8896 , 5332
+Orientation Sensor , 37 , 0 , 3962 , 0
+PDF , 8214 , 121 , 2585516 , 58242
+Page Visibility , 946 , 623 , 213108 , 162878
+Payment Request API , 1050 , 116 , 270516 , 31880
+Permissions API , 539 , 283 , 123942 , 78742
+Picture-in-Picture , 192 , 30 , 27648 , 3756
+Pointer Lock API , 14 , 6 , 1772 , 364
+Pointer events , 146 , 72 , 42116 , 22960
+Push API , 529 , 129 , 116642 , 32770
+Resize Observer , 122 , 98 , 26532 , 24196
+SVG , 3945 , 2016 , 716386 , 457184
+Screen Orientation , 148 , 72 , 23176 , 13392
+Selection API , 511 , 186 , 155950 , 34324
+Server-sent events , 75 , 40 , 11254 , 9312
+Service Workers , 3720 , 2195 , 906624 , 612294
+Shared Web Workers , 353 , 6 , 60034 , 988
+Speech Recognition API , 715 , 35 , 206214 , 6230
+Speech Synthesis API , 143 , 37 , 19102 , 4874
+Streams , 648 , 60 , 106912 , 12520
+Synchronous Clipboard API , 408 , 22 , 86736 , 2252
+TextEncoder & TextDecoder , 54 , 8 , 10284 , 2736
+Timing API , 634 , 451 , 141732 , 115734
+Touch events , 120 , 18 , 61744 , 4356
+URL , 82 , 60 , 19380 , 12616
+Vibration API , 74 , 2 , 10852 , 628
+Video element , 454 , 96 , 83612 , 23904
+Wake Lock API , 110 , 28 , 17324 , 4456
+Web Animations API , 2534 , 1319 , 704908 , 453406
+Web Audio API , 2006 , 535 , 483964 , 148782
+Web Authentication API , 28 , 0 , 1944 , 0
+Web Bluetooth , 4965 , 175 , 1194314 , 36494
+Web Cryptography , 679 , 297 , 150862 , 67106
+Web MIDI API , 278 , 0 , 43692 , 0
+Web Notifications , 1551 , 192 , 345342 , 44944
+Web SQL Database , 706 , 417 , 132420 , 85650
+Web Sockets , 1072 , 605 , 235424 , 169946
+Web Storage - name/value pairs , 3037 , 1264 , 662634 , 329936
+Web Workers , 1350 , 402 , 231660 , 88116
+WebGL (Canvas 3D) , 1753 , 660 , 433874 , 199464
+WebGPU , 398 , 3 , 61900 , 38
+WebRTC Peer-to-peer connections , 16440 , 2704 , 4688256 , 888528
+WebUSB , 333 , 21 , 79194 , 3482
+WebVR API , 250 , 1 , 54020 , 306
+WebXR Device API , 790 , 0 , 160940 , 0
+Window , 325 , 255 , 73034 , 64542
+XMLHttpRequest advanced features , 164 , 113 , 41032 , 37058
+abseil-cpp , 36 , 3 , 7064 , 310
+angle , 1511 , 612 , 638014 , 307016
+boringssl , 2256 , 1037 , 844400 , 357274
+breakpad , 109 , 0 , 48938 , 0
+brotli , 42 , 40 , 34116 , 33872
+cacheinvalidation , 323 , 0 , 100870 , 0
+ced , 46 , 29 , 50796 , 43978
+cld_3 , 195 , 154 , 57734 , 50036
+console.time and console.timeEnd , 113 , 47 , 48706 , 24510
+crc32c , 3 , 2 , 3206 , 1812
+createImageBitmap , 672 , 238 , 125040 , 59660
+crypto.getRandomValues() , 6 , 5 , 636 , 570
+dav1d , 423 , 128 , 318210 , 198247
+document.currentScript , 1073 , 736 , 229010 , 178208
+document.evaluate & XPath , 302 , 147 , 77388 , 52646
+execution-while-not-rendered , 1029 , 467 , 216074 , 129798
+execution-while-out-of-viewport , 2750 , 1233 , 617164 , 363330
+ffmpeg , 1454 , 520 , 794259 , 407586
+flac , 149 , 0 , 91242 , 0
+fontconfig , 394 , 235 , 126308 , 79862
+freetype , 776 , 368 , 399616 , 258768
+getUserMedia/Stream API , 79 , 15 , 12798 , 2398
+harfbuzz-ng , 999 , 533 , 561022 , 251402
+hunspell , 273 , 79 , 222274 , 53678
+iccjpeg , 2 , 2 , 1300 , 1300
+inspector_protocol , 197 , 0 , 85018 , 0
+jsoncpp , 87 , 0 , 38846 , 0
+leveldatabase , 608 , 441 , 179472 , 142770
+libaddressinput , 283 , 29 , 92054 , 4346
+libjingle_xmpp , 428 , 1 , 93304 , 18
+libjpeg_turbo , 333 , 180 , 212938 , 81256
+libphonenumber , 164 , 0 , 62824 , 0
+libpng , 231 , 167 , 99422 , 80558
+libsrtp , 121 , 0 , 34194 , 0
+libsync , 1 , 0 , 162 , 0
+libvpx , 1726 , 193 , 1495004 , 183602
+libwebm , 111 , 0 , 40503 , 0
+libwebp , 673 , 362 , 400178 , 224900
+libxml , 977 , 188 , 497426 , 119704
+libxslt , 394 , 1 , 215860 , 66
+libyuv , 455 , 7 , 171566 , 1582
+lzma_sdk , 6 , 0 , 1452 , 0
+modp_b64 , 2 , 2 , 772 , 772
+navigator.hardwareConcurrency , 1 , 1 , 18 , 18
+openscreen , 1 , 0 , 66 , 0
+opus , 304 , 51 , 313184 , 54486
+ots , 221 , 146 , 141434 , 97188
+oversized-images , 59 , 46 , 18214 , 15692
+perfetto , 658 , 3 , 173572 , 582
+pffft , 35 , 17 , 23078 , 12034
+re2 , 320 , 169 , 167968 , 106850
+requestAnimationFrame , 81 , 56 , 18242 , 16032
+requestIdleCallback , 1175 , 802 , 259582 , 205956
+s2cellid , 8 , 0 , 2272 , 0
+sfntly , 1350 , 3 , 113612 , 2102
+smhasher , 6 , 2 , 2380 , 1268
+snappy , 20 , 16 , 4472 , 4320
+sqlite , 896 , 464 , 1015296 , 698416
+tcmalloc , 235 , 31 , 70467 , 7432
+unrar , 384 , 0 , 174752 , 0
+usrsctp , 397 , 0 , 309786 , 0
+webrtc_overrides , 47 , 24 , 4046 , 2128
+woff2 , 18 , 12 , 24964 , 22456
+zlib , 177 , 57 , 92338 , 47554
