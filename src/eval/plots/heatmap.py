@@ -53,11 +53,11 @@ def heatmap(data, row_labels, col_labels, ax=None,
              rotation_mode="anchor")
 
     for tick in ax.get_xticklabels():
-        tick.set_fontname("Monospace")
-        tick.set_fontsize(7)
+        tick.set_fontname("Arial")
+        tick.set_fontsize(6)
     for tick in ax.get_yticklabels():
-        tick.set_fontname("Monospace")
-        tick.set_fontsize(8)
+        tick.set_fontname("Arial")
+        tick.set_fontsize(7)
 
     # Turn spines off and create white grid.
     for edge, spine in ax.spines.items():
@@ -148,7 +148,7 @@ feature_names = ["Accelerometer", "Execute Command", "Full Screen API",
                  "PDF", "Payment Request", "Selection", 
                  "Synchronous Clipboard", "Video Element",
                  "Web Audio", "Web Authentication", "Web Cryptography",
-                 "Web Workers", "WebRTC Peer-to-peer Connections", "TP_abseil-cpp",
+                 "Web Workers", "WebRTC", "TP_abseil-cpp",
                  "UserMedia/Stream", "TP_libaddressinput", "TP_libphonenumber",
                  "TP_libsrtp", "TP_libvpx", "TP_libyuv", 
                  "TP_lzma_sdk", "TP_opus", "TP_pffft",
@@ -162,6 +162,7 @@ site_names = ['Airline', 'Email',  'Financial',  'News', 'Remote_Working',
 #feature_names = [x[:10] for x in feature_names]
 fig = plt.figure()
 ax = fig.gca()
+fig.autofmt_xdate(rotation=20)
 
 im, cbar = heatmap(code_coverage, feature_names, site_names, ax=ax,
                    cmap="YlGn", cbarlabel="Code Coverage Rate")
