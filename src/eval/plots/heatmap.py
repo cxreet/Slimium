@@ -53,10 +53,10 @@ def heatmap(data, row_labels, col_labels, ax=None,
              rotation_mode="anchor")
 
     for tick in ax.get_xticklabels():
-        tick.set_fontname("Arial")
+        tick.set_fontname("DejaVu Sans")
         tick.set_fontsize(6)
     for tick in ax.get_yticklabels():
-        tick.set_fontname("Arial")
+        tick.set_fontname("DejaVu Sans")
         tick.set_fontsize(7)
 
     # Turn spines off and create white grid.

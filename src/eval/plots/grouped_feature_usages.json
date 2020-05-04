@@ -179,7 +179,7 @@
         "Travel": 0.368907, 
         "Video": 0.368835
     }, 
-    "WebRTC Peer-to-peer Connections": {
+    "WebRTC": {
         "Airline": 0.185252, 
         "Email": 0.185633, 
         "Financial": 0.185252, 
