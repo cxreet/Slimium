@@ -1,0 +1,73 @@
+#!/usr/bin/python
+import sys, os, json
+
+unique_indexes_file = "../../../out/unique_indexes.txt"
+feature_code_map = "../../feature_code_mapping/patched_extended_feature_code_maps/extended_0.700000_0.700000_map.json"
+front_page_profiling_out = "../../../out/last_logs/"
+
+def main():
+
+    file_2_ids = dict()
+    # read unique_indexes file to get the file to function ids mapping
+    with open(unique_indexes_file, 'r') as in_f:
+        for line in in_f.readlines():
+            line = line.strip()
+            tokens = line.split()
+            file_name = tokens[0].strip()
+            func_ids = set()
+            for i in range(0, (len(tokens)-1)/2):
+                func_id = int(tokens[1+i*2], 10)
+                func_ids.add(func_id)
+            file_2_ids[file_name] = func_ids
+
+    csp_files = set()
+    # get the files related to CSP
+    for file_name in file_2_ids:
+        if file_name.startswith("../../third_party/blink/renderer/core/frame/csp/"):
+            csp_files.add(file_name)
+        elif file_name.startswith("../../content/common/content_security_policy/"):
+            csp_files.add(file_name)
+        elif file_name.startswith("gen/third_party/blink/public/mojom/csp/"):
+            csp_files.add(file_name)
+
+    # subresource integrity (SRI)
+    sri_patterns = ["../../third_party/blink/renderer/core/loader/subresource_integrity_helper.cc",
+                    "../../third_party/blink/renderer/platform/loader/subresource_integrity.cc",
+                    "../../third_party/blink/renderer/platform/loader/fetch/integrity_metadata.cc"]
+
+    # cross-origin resource sharing (CORS)
+    cors_patterns = ["../../third_party/blink/renderer/platform/loader/cors/",
+                     "gen/services/network/public/mojom/cors_origin_pattern.mojom-blink.cc",
+                     "../../services/network/public/cpp/cors/",
+                     "../../services/network/cors/",
+                     "gen/services/network/public/mojom/cors.mojom.cc",
+                     "../../content/public/browser/cors_exempt_headers.cc",
+                     "../../extensions/common/cors_util.cc",
+                     "gen/services/network/public/mojom/cors.mojom-blink.cc",
+                     "gen/services/network/public/mojom/cors_origin_pattern.mojom.cc",
+                     "gen/services/network/public/mojom/cors_origin_pattern.mojom-shared.cc",
+                     "gen/services/network/public/mojom/cors.mojom-shared.cc",
+                     "../../content/public/browser/cors_origin_pattern_setter.cc"]
+
+    # get the feature to files mapping 
+    feature_2_files = dict()
+    with open(feature_code_map, 'r') as in_f:
+        feature_2_files = json.load(in_f)
+
+    # how many features contain CSP files
+    print "Following features have CSP related code:"
+    for feature in feature_2_files:
+        files = feature_2_files[feature]
+        for csp_file in csp_files:
+            if csp_file in files:
+                print feature
+                break
+
+    # read the profiling results of top 1000 websites
+    for fname in os.listdir(front_page_profiling_out):
+
+
+    return
+
+if __name__ == "__main__":
+    main()
