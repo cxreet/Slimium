@@ -1,6 +1,3 @@
-
-
-
 # Slimium
 
 ## Setup
