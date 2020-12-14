@@ -73,12 +73,18 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 	- ~/slimium/src/shm/shm_decode (dump the executed functions)
 	```
 ## Evaluation
-### 1. Get function boundaries
+### 1. Build chromium binary with function boundaries
+1. `cd chromium/src`
+2. `gn gen out/Marking`
+3. `cp slimium/chromium-build-config/marking_args.gn out/Marking/args.gn`
+4. `autoninja -C out/Marking chrome`
+
+### 2. Get function boundaries
 1. `cd slimium/src/disassemble`
 2. `python disassemble_marking.py ~/chromium/src/out/Marking/chrome ~/slimium/out/function_boundaries.txt`
 3. Note that the output is in `function_boundaries`, each line is in the format of `function_id function_start_address function_end_address function_name`.
 
-### 2. Extend feature-code map
+### 3. Extend feature-code map
 1. `cd slimium/src/feature_code_mapping`
 2. The `manual_feature_code_map.json` is the manually defined feature-code map, and all the extended prebuilt feature-code maps are under `src/feature_code_mapping/extended_feature_code_maps/`.
 3. If you want to generate the extended feature-code maps by yourself:
@@ -88,7 +94,7 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 	- Note that the parameters of `auto_extend_mapping.sh` are: the manually defined feature-code map; the call number threshold; the function name similarity threshold; the new extended feature-code map.
 	- Or, you can just run `python auto_generate_extended_feature_code_maps.py` to generate all the extended feature-code maps, the output files would be put under `extended_feature_code_maps`.
 
-### 3. Profiling
+### 4. Profiling
 #### Base (blank website)
 1. `cd slimium/src/profile`
 2. Edit `baseline_profiling.py` to modify the variables according to the comments.
@@ -101,7 +107,7 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 3. `python evolve_profiling.py ~/slimium/out/profile_out`
 Note the profiling results about the executed functions are under the `profile_out`, each file contains the function IDs for executed functions.
 
-### 4. Rewriting
+### 5. Rewriting
 #### Get nondeterministic functions
 1. `cd slimium/src/rewrite`
 2. `python simple_count_nondeterministic_code.py -l ~/slimium/out/profile_out/ -o ~/slimium/out/nondeterministic_funcs_manual_map_1000_1.txt -n 1000 -a 1`
