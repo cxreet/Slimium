@@ -106,7 +106,7 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 2. Edit `evolve_profiling.py` to modify the variables according to the comments.
 3. `python evolve_profiling.py ~/slimium/out/profile_out`
 Note the profiling results about the executed functions are under the `profile_out`, each file contains the function IDs for executed functions.
-This will take one week to two week.
+This will take one week to two weeks.
 
 ### 5. Rewriting
 #### Get nondeterministic functions
