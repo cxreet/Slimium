@@ -13,6 +13,7 @@
 ### Get customized llvm source code
 1. Download and build `11vm` from this [link](https://github.com/cxreet/11vm).
 2. Modify `llvm/lib/Transforms/Scalar/DumpIR.cpp` line 81 to change the directory path that you want to store the LLVM bitcode.
+3. Follow the [link](https://github.com/cxreet/11vm) to compile the LLVM toolchain.
 
 ### Compile Chromium
 Go to Chromium source code `src` and do some preparations:
@@ -22,7 +23,7 @@ Go to Chromium source code `src` and do some preparations:
 
 #### Build Chromium to Dump LLVM IR
 1. `gn gen out/DumpIR`
-2. `cp slimium/chromium-build-config/dump_ir_args.gn out/DumpIR/args.gn`
+2. `cp slimium/chromium-build-config/dump_ir_args.gn out/DumpIR/args.gn` and edit `out/DumpIR/args.gn` to fix the " clang\_base\_path" with your llvm build directory.
 3. `autoninja -C out/DumpIR chrome`
 4. After compiling chromium, the LLVM bitcode would be dumped into the directory specified in file `llvm/lib/Transforms/Scalar/DumpIR.cpp` (line 81).
 
@@ -58,12 +59,12 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 ##### Build A LLVM Pass for Profiling Instrumentation
 1. `cd 11vm`
 2. Edit `llvm/lib/Transforms/Scalar/EnableProfiling.cpp` to change line 240 to let `index_file` point to the absolute path of the `unique_indexes.txt`.
-3. ``cd build && make -j`nproc` ``
+3. Recompile the llvm toolchain: ``cd build && make -j`nproc` ``.
 
 ##### Build chromium binary
 1. `cd chromium/src`
 2. `gn gen out/Profiling`
-3. `cp slimium/chromium-build-config/profiling_args.gn out/Profiling/args.gn`
+3. `cp slimium/chromium-build-config/profiling_args.gn out/Profiling/args.gn` and edit `out/Profiling/args.gn` to fix the " clang\_base\_path" with your llvm build directory.
 4. `autoninja -C out/Profiling chrome`
 5. Note that during compiling, it runs some tests, so that some instrumented binaries would be executed and if you go to `slimium/src/shm` and run `./shm_decode`, you may see results like `In total, xxxx (0.xxx) out of 965974 functions are executed!`
 6. To profile a website such as `youtube.com`:
@@ -76,7 +77,7 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 ### 1. Build chromium binary with function boundaries
 1. `cd chromium/src`
 2. `gn gen out/Marking`
-3. `cp slimium/chromium-build-config/marking_args.gn out/Marking/args.gn`
+3. `cp slimium/chromium-build-config/marking_args.gn out/Marking/args.gn` and edit `out/Marking/args.gn` to fix the " clang\_base\_path" with your llvm build directory.
 4. `autoninja -C out/Marking chrome`
 
 ### 2. Get function boundaries
@@ -91,6 +92,7 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 	- `python3 -m pip install textdistance`
 	- Edit `auto_extend_mapping.sh` to change the variables to point to your relevant file paths
 	- Run `python3 auto_generate_extended_feature_code_maps.py` to generate all the extended feature-code maps, the output files would be put under `./extended_feature_code_maps/`.
+	- Please take a cup of coffee! This takes time to regenerate all the extended feature-code maps (i.e., 25 maps).
 
 ### 4. Profiling
 #### Base (blank website)
