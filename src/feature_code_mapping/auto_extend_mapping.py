@@ -1,5 +1,6 @@
+#!/usr/bin/python3
 import os
-import cPickle as pickle
+import pickle
 import logging, json
 from operator import itemgetter
 from bz2 import BZ2File
@@ -417,7 +418,7 @@ if __name__ == '__main__':
     i = 0
     while not finished:
         i += 1
-        print i, "iteration..."
+        print(i, "iteration...")
         finished = True
         extended_feature_code_mapping = FFMG.extend_feature_code_mapping(call_threshold, similarity_threshold)
         for feature in extended_feature_code_mapping:
@@ -426,12 +427,12 @@ if __name__ == '__main__':
             if len(up_files) > 0:
                 for (fname, w, s) in up_files:
                     FFMG.feature_files_m[feature].add(fname)
-                    print feature, "+up", fname
+                    print(feature, "+up", fname)
                 finished = False
             if len(down_files) > 0:
                 for (fname, s, s) in down_files:
                     FFMG.feature_files_m[feature].add(fname)
-                    print feature, "+down", fname
+                    print(feature, "+down", fname)
                 finished = False
 
     with open(out_file, 'w') as out_f:

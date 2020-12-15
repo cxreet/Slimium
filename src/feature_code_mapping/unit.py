@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import textdistance
 
 class Section(object):

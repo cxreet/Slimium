@@ -86,13 +86,11 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 
 ### 3. Extend feature-code map
 1. `cd slimium/src/feature_code_mapping`
-2. The `manual_feature_code_map.json` is the manually defined feature-code map, and all the extended prebuilt feature-code maps are under `src/feature_code_mapping/extended_feature_code_maps/`.
-3. If you want to generate the extended feature-code maps by yourself:
-	- `pip install textdistance`
+2. The `manual_feature_code_map.json` is the manually defined feature-code map, and all the prebuilt extended feature-code maps are under `./extended_feature_code_maps/`.
+3. If you want to regenerate the extended feature-code maps by yourself:
+	- `python3 -m pip install textdistance`
 	- Edit `auto_extend_mapping.sh` to change the variables to point to your relevant file paths
-	- Run `./auto_extend_mapping.sh ./manual_feature_code_map.json 0.9 0.9 ./extended_0.9_0.9_map.json` to get the extended feature-code map.
-	- Note that the parameters of `auto_extend_mapping.sh` are: the manually defined feature-code map; the call number threshold; the function name similarity threshold; the new extended feature-code map.
-	- Or, you can just run `python auto_generate_extended_feature_code_maps.py` to generate all the extended feature-code maps, the output files would be put under `extended_feature_code_maps`.
+	- Run `python3 auto_generate_extended_feature_code_maps.py` to generate all the extended feature-code maps, the output files would be put under `./extended_feature_code_maps/`.
 
 ### 4. Profiling
 #### Base (blank website)
