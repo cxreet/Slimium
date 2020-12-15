@@ -95,17 +95,18 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 	- Please take a cup of coffee! This takes time to regenerate all the extended feature-code maps (i.e., 25 maps).
 
 ### 4. Profiling
-#### Base (blank website)
+#### Base (Get executed code for loading blank tab)
 1. `cd slimium/src/profile`
 2. Edit `baseline_profiling.py` to modify the variables according to the comments.
 3. `python baseline_profiling.py ~/slimium/out/baseline.log`
 4. Note that the executed functions' IDs are dumped into `~/slimium/out/baseline.log`.
 
-#### Top websites
+#### Top websites (Get non-deterministic code for loading top 1000 Alexa websites)
 1. `cd slimium/src/profile`
 2. Edit `evolve_profiling.py` to modify the variables according to the comments.
 3. `python evolve_profiling.py ~/slimium/out/profile_out`
 Note the profiling results about the executed functions are under the `profile_out`, each file contains the function IDs for executed functions.
+This will take one week to two week.
 
 ### 5. Rewriting
 #### Get nondeterministic functions
