@@ -12,8 +12,8 @@
 
 ### Get customized llvm source code
 1. Download and build `11vm` from this [link](https://github.com/cxreet/11vm).
-2. Modify `llvm/lib/Transforms/Scalar/DumpIR.cpp` line 81 to change the directory path that you want to store the LLVM bitcode.
-3. Follow the [link](https://github.com/cxreet/11vm) to compile the LLVM toolchain.
+2. Modify `llvm/lib/Transforms/Scalar/DumpIR.cpp` line 81 to change the directory path that you want to store the LLVM bitcode. (Make sure the outdirecory exists.)
+3. Follow the [link](https://github.com/cxreet/11vm) to recompile the LLVM toolchain.
 
 ### Compile Chromium
 Go to Chromium source code `src` and do some preparations:
