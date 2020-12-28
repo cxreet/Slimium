@@ -114,18 +114,21 @@ This will take one week to two weeks. If you want to reuse our nondeterministic 
 	- `python convert_nondeterministic_code.py -u ~/slimium/out/unique_indexes.txt -c f2i -i ./nondeterministic_code.txt -o  ~/slimium/out/nondeterministic_funcs_manual_map_1000_1.txt`
 
 ### 5. Rewriting
-
-#### Collect the last profiling log of each website
-1. `cd slimium/src/rewrite`
-2. `python collect_logs.py ~/slimium/out/profile_out/ ~/slimium/out/last_logs/`. The last log of each website is under `last_logs`.
+#### Visit a website and do the profiling, take www.youtube.com as an example.
+1. `mkdir -p ~/slimium/test/youtube.com`, `mkdir -p ~/slimium/remove/youtube.com`
+2. `slimium/src/shm/shm_clear`
+3. `~/chromium/src/out/Profiling/chrome www.youtube.com`, take some time to explore the website and close the chromium.
+4. `slimium/src/shm/shm_decode > ~/slimium/test/youtube.com/youtube.log`
 
 #### Get functions to be removed for each website
 1. `cd slimium/src/rewrite`
 2. Edit `./get_removable_functions.sh` to change the variables.
-3. `./get_removable_functions.sh ~/slimium/out/last_logs/ ~/slimium/src/feature_code_mapping/manual_feature_code_map.json ~/slimium/out/removeable_functions 0.5`. Note that `get_removable_functions.sh`: (1) the log directory. (2) the feature code mapping file. (3) the output directory. (4) the code coverage threshold (i.e., if the code coverage of certain feature exceeds the threshold, the feature should be considered removable).
-4. `get_removable_functions.sh` would also generate two files under the output directory: `feature_func_num_code_size.txt` and `feature_functions.json`. The first one contains function number and code size of each feature. The second one contains the function ids of each feature.
+3. `./get_removable_functions.sh ~/slimium/test/youtube.com/ ~/workspace/Slimium/src/feature_code_mapping/extended_feature_code_maps/extended_0.700000_0.700000_map.json  ~/slimium/remove/youtube.com/ 0.35`. Note that `get_removable_functions.sh` takes the following arguments: (1) the log directory contains the profiling results. (2) the chosen feature code mapping file. (3) the output directory. (4) the code coverage threshold (i.e., if the code coverage of certain feature exceeds the threshold, the feature should be considered removable).
+4. Besides generating the file that contains functions being removed (i.e., "youtube.log"), `get_removable_functions.sh` would also generate two files under the output directory: `feature_func_num_code_size.txt` and `feature_functions.json`. The first one contains function number and code size of each feature. The second one contains the function ids of each feature.
 
 #### Rewrite chrome
 1. `cd slimium/src/rewrite`
-2. `python rewrite.py -c ~/chromium/src/out/Marking/chrome -i ~/slimium/out/removeable_functions/youtube.com.log -o ./ -m ~/slimium/out/removeable_functions/feature_functions.json`
-3. Note that `rewrite.py` takes in four arguments: (1) the orginal chrome binary. (2) the file contains removable functions ids for a website. (3) the output directory. (4) the file contains the function ids of each feature. After running `rewrite.py`, a debloated binary `website_chrome` would be generated under the output directory.
+2. `python rewrite.py -c ~/chromium/src/out/Marking/chrome -i ~/slimium/remove/youtube.com/youtube.log -o ~/slimium/remove/youtube.com/ -m ~/slimium/remove/youtube.com/feature_functions.json`
+3. Note that `rewrite.py` takes in four arguments: (1) the orginal chrome binary. (2) the file contains removable functions ids for a website. (3) the output directory. (4) the file contains the function ids of each feature. After running `rewrite.py`, a debloated binary `chrome_youtube` would be generated under the output directory.
+4. `cp ~/slimium/remove/youtube.com/chrome_youtube ~/chromium/src/out/Marking/`, `chmod +x ~/chromium/src/out/Marking/chrome_youtube`
+5. Now, you can run the debloated Chromium to visit www.youtube.com: `~/chromium/src/out/Marking/chrome_youtube.com www.youtube.com`
