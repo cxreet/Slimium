@@ -1,5 +1,5 @@
 import os
-import cPickle as pickle
+import pickle
 import logging, json
 from operator import itemgetter
 from bz2 import BZ2File
@@ -134,7 +134,7 @@ class FeatureFunctionMappingGenerator(object):
                     f_name = f_name.strip()
 
                     if f_end - f_start + 1 < 13:
-                        print line
+                        print(line)
                         assert False
                     
                     BF = self.ffmap[f_id]
@@ -299,7 +299,7 @@ class FeatureFunctionMappingGenerator(object):
                     self.feature_func_num_m[feature] += 1
 
                     if bin_func.size < 13:
-                        print func_id, bin_func.name
+                        print(func_id, bin_func.name)
                         assert False
 
                     if bin_func not in visited:
@@ -392,7 +392,7 @@ if __name__ == '__main__':
     # create outdir
     if not os.path.exists(out_dir):
         cmd = "mkdir -p " + out_dir
-        print cmd
+        print(cmd)
         p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
         p.communicate()
 
