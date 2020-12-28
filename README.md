@@ -105,13 +105,15 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 1. `cd slimium/src/profile`
 2. Edit `evolve_profiling.py` to modify the variables according to the comments.
 3. `python evolve_profiling.py ~/slimium/out/profile_out`
-Note the profiling results about the executed functions are under the `profile_out`, each file contains the function IDs for executed functions.
-This will take one week to two weeks.
+Note the profiling results about the executed functions are under the `profile_out`, each directory contains the profiling results for one website, under which each file contains the function IDs for executed functions.
+This will take one week to two weeks. If you want to reuse our nondeterministic code result (recommended), please directly jump to step 6.
+4. `cd slimium/src/rewrite`
+5. `python simple_count_nondeterministic_code.py -l ~/slimium/out/profile_out/ -o ~/slimium/out/nondeterministic_funcs_manual_map_1000_1.txt -n 1000 -a 1`
+6. To save time and reuse the nondeterministic code result:
+	- `cd slimium/src/rewrite`
+	- `python convert_nondeterministic_code.py -u ~/slimium/out/unique_indexes.txt -c f2i -i ./nondeterministic_code.txt -o  ~/slimium/out/nondeterministic_funcs_manual_map_1000_1.txt`
 
 ### 5. Rewriting
-#### Get nondeterministic functions
-1. `cd slimium/src/rewrite`
-2. `python simple_count_nondeterministic_code.py -l ~/slimium/out/profile_out/ -o ~/slimium/out/nondeterministic_funcs_manual_map_1000_1.txt -n 1000 -a 1`
 
 #### Collect the last profiling log of each website
 1. `cd slimium/src/rewrite`
