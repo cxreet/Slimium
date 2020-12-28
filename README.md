@@ -123,7 +123,7 @@ This will take one week to two weeks. If you want to reuse our nondeterministic 
 #### Get functions to be removed for each website
 1. `cd slimium/src/rewrite`
 2. Edit `./get_removable_functions.sh` to change the variables.
-3. `./get_removable_functions.sh ~/slimium/test/youtube.com/ ~/workspace/Slimium/src/feature_code_mapping/extended_feature_code_maps/extended_0.700000_0.700000_map.json  ~/slimium/remove/youtube.com/ 0.35`. Note that `get_removable_functions.sh` takes the following arguments: (1) the log directory contains the profiling results. (2) the chosen feature code mapping file. (3) the output directory. (4) the code coverage threshold (i.e., if the code coverage of certain feature exceeds the threshold, the feature should be considered removable).
+3. `./get_removable_functions.sh ~/slimium/test/youtube.com/ slimium/src/feature_code_mapping/extended_feature_code_maps/extended_0.700000_0.700000_map.json  ~/slimium/remove/youtube.com/ 0.35`. Note that `get_removable_functions.sh` takes the following arguments: (1) the log directory contains the profiling results. (2) the chosen feature code mapping file. (3) the output directory. (4) the code coverage threshold (i.e., if the code coverage of certain feature exceeds the threshold, the feature should be considered removable).
 4. Besides generating the file that contains functions being removed (i.e., "youtube.log"), `get_removable_functions.sh` would also generate two files under the output directory: `feature_func_num_code_size.txt` and `feature_functions.json`. The first one contains function number and code size of each feature. The second one contains the function ids of each feature.
 
 #### Rewrite chrome
