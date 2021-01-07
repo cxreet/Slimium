@@ -51,6 +51,14 @@ def convert_function_2_index(unique_index_file, input_file, output_file):
             tokens = line.split()
             file_name = tokens[0].strip()
             for func_name in tokens[1:]:
+                if (file_name, func_name) not in file_func_2_idx:
+                    if func_name.endswith("_8bpc"):
+                        func_name = func_name.replace("_8bpc", "_16bpc")
+                    elif func_name.endswith("_16bpc"):
+                        func_name = func_name.replace("_16bpc", "_8bpc")
+                    else:
+                        assert(False)
+
                 idx = file_func_2_idx[(file_name, func_name)]
                 indexes.append(idx)
 
