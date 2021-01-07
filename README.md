@@ -75,10 +75,13 @@ Now, we have some static analysis results based on the LLVM IR bitcode. Let's bu
 	```
 ## Evaluation
 ### 1. Build chromium binary with function boundaries
-1. `cd chromium/src`
-2. `gn gen out/Marking`
-3. `cp slimium/chromium-build-config/marking_args.gn out/Marking/args.gn` and edit `out/Marking/args.gn` to fix the " clang\_base\_path" with your llvm build directory.
-4. `autoninja -C out/Marking chrome`
+1. cd 11vm
+2. Edit llvm/lib/Transforms/Scalar/EnableMarking.cpp to change line 131 to let index_file point to the absolute path of the unique_indexes.txt.
+3. Recompile the llvm toolchain: cd build && make -j`nproc`
+4. `cd chromium/src`
+5. `gn gen out/Marking`
+6. `cp slimium/chromium-build-config/marking_args.gn out/Marking/args.gn` and edit `out/Marking/args.gn` to fix the " clang\_base\_path" with your llvm build directory.
+7. `autoninja -C out/Marking chrome`
 
 ### 2. Get function boundaries
 1. `cd slimium/src/disassemble`
